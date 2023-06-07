@@ -1,6 +1,7 @@
 package error
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"strings"
@@ -37,5 +38,11 @@ func (e *WISdoMError) WrapError(err error, serviceName ...string) {
 // headers have been written, due to the fact that only one http status code
 // may be sent in a HTTP response
 func (e WISdoMError) Send(w http.ResponseWriter) error {
+	// set the content type header to json and indicate sending utf-8 data
 	w.Header().Set("Content-Type", "text/json; charset=utf-8")
+	// now send the status code back the the request origin
+	w.WriteHeader(e.HttpStatusCode)
+	// now send the error to the request origin and return a additional error
+	// if one occurrs
+	return json.NewEncoder(w).Encode(e)
 }
