@@ -1,0 +1,7 @@
+{
+    "required": ["TEST_ENV_1", "TEST_ENV_2"],
+    "optional": {
+        "TEST_ENV_3": "default",
+        "TEST_ENV_4": ""
+    }
+}
