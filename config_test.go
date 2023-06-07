@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-const environmentFilePath = "../res/environment.json"
+const environmentFilePath = "./res/environment.json"
 
 func TestEnvironmentPopulateFromFile(t *testing.T) {
 	file, err := os.Open(environmentFilePath)
