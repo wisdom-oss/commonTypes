@@ -1,4 +1,4 @@
-package error
+package wisdomType
 
 import (
 	"encoding/json"

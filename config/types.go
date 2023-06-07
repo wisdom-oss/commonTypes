@@ -1,4 +1,4 @@
-package config
+package wisdomType
 
 // EnvironmentConfguration matches the expected layout of the environment
 // configuration file for the microservices.

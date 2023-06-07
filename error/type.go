@@ -1,4 +1,4 @@
-package error
+package wisdomType
 
 // WISdoMError is the default response layout for an error that occurred during
 // request handling.

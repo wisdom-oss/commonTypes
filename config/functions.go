@@ -1,4 +1,4 @@
-package config
+package wisdomType
 
 import (
 	"encoding/json"
