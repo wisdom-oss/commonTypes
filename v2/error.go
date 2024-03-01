@@ -109,3 +109,47 @@ func (e *WISdoMError) Send(w http.ResponseWriter) error {
 	// now return the json generated of the error instance
 	return json.NewEncoder(w).Encode(e)
 }
+
+// Equals checks if the current WISdoMError object is equal to the provided
+// WISdoMError object. It compares the values of the Type, Status, Title, Detail,
+// and Error fields of the two objects. If any of these fields differ, Equals
+// returns false. Otherwise, it returns true, indicating that the two objects
+// are equal.
+//
+// Example usage:
+//
+//	err1 := &WISdoMError{
+//	    Type:   "error",
+//	    Status: 500,
+//	    Title:  "Internal Server Error",
+//	    Detail: "An unknown error occurred",
+//	    Error:  "",
+//	}
+//	err2 := &WISdoMError{
+//	    Type:   "error",
+//	    Status: 500,
+//	    Title:  "Internal Server Error",
+//	    Detail: "An unknown error occurred",
+//	    Error:  "",
+//	}
+//	equal := err1.Equals(*err2)
+//	fmt.Println(equal) // Output: true
+func (e *WISdoMError) Equals(other WISdoMError) bool {
+	equals := true
+	if e.Type != other.Type {
+		equals = false
+	}
+	if e.Status != other.Status {
+		equals = false
+	}
+	if e.Title != other.Title {
+		equals = false
+	}
+	if e.Detail != other.Detail {
+		equals = false
+	}
+	if e.Error != other.Error {
+		equals = false
+	}
+	return equals
+}
